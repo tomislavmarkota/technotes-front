@@ -4,11 +4,10 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 import usePersist from '../../hooks/usePersist'
-import useTitle from '../../hooks/useTitle'
 import PulseLoader from 'react-spinners/PulseLoader'
 
 const Login = () => {
-    useTitle('Employee Login')
+
 
     const userRef = useRef()
     const errRef = useRef()
@@ -64,7 +63,7 @@ const Login = () => {
     const content = (
         <section className="public">
             <header>
-                <h1>Employee Login</h1>
+                <h1>Login</h1>
             </header>
             <main className="login">
                 <p ref={errRef} className={errClass} aria-live="assertive">{errMsg}</p>
@@ -91,7 +90,7 @@ const Login = () => {
                         value={password}
                         required
                     />
-                    <button className="form__submit-button">Sign In</button>
+                    <button className="form__submit-button" disabled={!persist}>Sign In</button>
 
 
                     <label htmlFor="persist" className="form__persist">
